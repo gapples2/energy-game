@@ -61,8 +61,8 @@ energy.dimensions = new Dimensions({
         }),
         new Dimension({
             pos:7,
-            cost: new Decimal(1e10),
-            scaling: new Decimal(50000),
+            cost: new Decimal(1e9),
+            scaling: new Decimal(10000),
             type: "energy",
             cpath: [()=>player.energy,"points"],
             multi: ()=>energy.boost.getBoost(6).times(energy.tickspeed.getBoost()).div(1e6),
@@ -71,8 +71,8 @@ energy.dimensions = new Dimensions({
         }),
         new Dimension({
             pos:8,
-            cost: new Decimal(1e15),
-            scaling: new Decimal(1e7),
+            cost: new Decimal(1e12),
+            scaling: new Decimal(1e6),
             type: "energy",
             cpath: [()=>player.energy,"points"],
             multi: ()=>energy.boost.getBoost(7).times(energy.tickspeed.getBoost()).div(1e7),

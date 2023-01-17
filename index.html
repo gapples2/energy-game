@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Energy Game</title>
+
+        <link rel="stylesheet" href="css/imports.css">
+        <link rel="stylesheet" href="css/elements.css">
+        <link rel="stylesheet" href="css/classes.css">
+        <link rel="stylesheet" href="css/ids.css">
+
+        <script src="js/helper/loader.js" defer></script>
+    </head>
+    <body>
+        <div style="text-align:center">You have <span id="energy-amt"></span> energy. [+<span id="energy-gain"></span>/sec]</div><br>
+        <table style="width:100%" id="energy-tickspeed"><tr><td style="text-align:left;width:30%;">Backup Generators</td><td id="energy-tickspeed-boost"></td><td style="text-align:right;width:30%;"><button id="energy-tickspeed-button"></button></td></tr></table>
+        <table style="width:100%" id="energy-overclock"><tr><td style="text-align:left;width:30%;">Overclock Generators</td><td style="text-align:right;width:70%;"><button id="energy-overclock-button"></button></td></tr></table>
+        <div id="energy-dims"></div>
+        Producers T<span id="energy-boost-amt"></span>:&nbsp;<button id="energy-boost-button"></button>
+    </body>
+</html>

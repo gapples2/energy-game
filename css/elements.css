@@ -1,0 +1,15 @@
+*{
+    font-family: 'Inter', sans-serif;
+    color: white;
+    background-color: black;
+    transition: 0.25s;
+    user-select: none;
+    font-variant: tabular-nums;
+    
+    --energy-color: #999900;
+}
+
+button{
+    border: 2px solid white;
+    border-radius: 1px;
+}

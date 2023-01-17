@@ -1,0 +1,22 @@
+#energy-amt{
+    width:125px;
+    font-size: 20px;
+    color: var(--energy-color)
+}
+
+#energy-boost-button{
+    width: 75%;
+}
+
+#energy-tickspeed-boost{
+    width: 40%;
+    text-align:center;
+}
+
+#energy-tickspeed-button{
+    width: 100%;
+}
+
+#energy-overclock-button{
+    width: 100%;
+}

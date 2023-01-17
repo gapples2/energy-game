@@ -1,0 +1,15 @@
+.locked{
+    border-color: #555555;
+}
+
+.locked:hover{
+    background-color: #555555;
+}
+
+.energy-unlocked{
+    border-color: var(--energy-color)
+}
+
+.energy-unlocked:hover{
+    background-color: var(--energy-color);
+}

@@ -4,7 +4,7 @@ const saving = {
     },
     restoreData(data,odata){
         let newdata = Array.isArray(odata)?[]:{}
-        if((typeof data)=="object"){
+        if((typeof odata)=="object"){
             Object.keys(odata).forEach(o=>{
                 let obj = odata[o]
                 let old = data[o]

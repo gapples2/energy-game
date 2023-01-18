@@ -8,7 +8,7 @@ energy.overclock = {
         return player.energy.overclock
     },
     requirement(){
-        return Decimal.pow(100,this.getAmount().pow(2).add(this.getAmount()).div(2).add(2))
+        return Decimal.pow(10,this.getAmount().pow(1.1).add(4))
     },
     canReset(){
         return player.energy.points.gte(this.requirement())
@@ -21,9 +21,9 @@ energy.overclock = {
             this.update({css:true,txt:true})
         }
     },
-    getBoost(){
-        let b = Decimal.pow(1.04,player.energy.overclock)
-        if(b.gte(1.5))b=new Decimal(2.5).minus(Decimal.div(1,b.minus(1).log2().add(1).sqrt()))
+    getBoost(x=0){
+        let b = Decimal.pow(1.1,player.energy.overclock.add(x).add(player.energy.overclock.add(x).gte(1)?2:0))
+        if(b.gte(4))b=new Decimal(10).minus(Decimal.div(10,b.minus(4).log2().add(4).sqrt()))
         return b
     },
     update(to={css:true}){
@@ -32,7 +32,8 @@ energy.overclock = {
             elements.get("energy-overclock").style.display = player.energy.overclockUnlocked?"":"none"
         }
         if(to.txt){
-            elements.get("energy-overclock-button").textContent = `Overclock your generators to make them 4% more effective for ${format(this.requirement())} energy`
+            elements.get("energy-overclock-button").textContent = `Overclock your generators to make them more effective for ${format(this.requirement())} energy`
+            elements.get("energy-overclock-boost").textContent = `+${format(this.getBoost().div(10).minus(0.1))}x, next: +${format(this.getBoost(1).div(10).minus(0.1))}x`
         }
     }
 }

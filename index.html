@@ -11,10 +11,11 @@
         <script src="js/helper/loader.js" defer></script>
     </head>
     <body>
-        <div style="text-align:center">You have <span id="energy-amt"></span> energy. [+<span id="energy-gain"></span>/sec]</div><br>
-        <table style="width:100%" id="energy-tickspeed"><tr><td style="text-align:left;width:30%;">Backup Generators</td><td id="energy-tickspeed-boost"></td><td style="text-align:right;width:30%;"><button id="energy-tickspeed-button"></button></td></tr></table>
-        <table style="width:100%" id="energy-overclock"><tr><td style="text-align:left;width:30%;">Overclock Generators</td><td style="text-align:right;width:70%;"><button id="energy-overclock-button"></button></td></tr></table>
-        <div id="energy-dims"></div>
-        Producers T<span id="energy-boost-amt"></span>:&nbsp;<button id="energy-boost-button"></button>
+        <div style="text-align:center;font-size:18px">You have <span id="energy-amt"></span> energy. [+<span id="energy-gain"></span>/sec]</div><br>
+        <table style="width:100%" id="energy-tickspeed"><tr><td style="text-align:left;width:30%;">Generators</td><td id="energy-tickspeed-boost"></td><td style="text-align:right;width:30%;"><button id="energy-tickspeed-button"></button></td></tr></table>
+        <table style="width:100%" id="energy-overclock"><tr><td style="text-align:left;width:20%;">Overclock</td><td style="text-align:center;width:20%" id="energy-overclock-boost"></td><td style="text-align:right;width:60%;"><button id="energy-overclock-button"></button></td></tr></table>
+        <br id="energy-tickspeed-br">
+        <div id="energy-dims"></div><br>
+        <table style="width:100%"><tr><td style="width:20%;text-align:30%">Producer Tier <span id="energy-boost-amt"></span></td><td style="width:60%;text-align:right;"><button id="energy-boost-button"></button></td></tr></table>
     </body>
 </html>

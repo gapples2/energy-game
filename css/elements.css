@@ -5,11 +5,15 @@
     transition: 0.25s;
     user-select: none;
     font-variant: tabular-nums;
-    
+    font-size: 15px;
     --energy-color: #999900;
 }
 
 button{
     border: 2px solid white;
     border-radius: 1px;
+}
+
+span{
+    font-size:inherit;
 }

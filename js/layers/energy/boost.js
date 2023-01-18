@@ -10,7 +10,11 @@ energy.boost = {
     },
     canReset(){
         if(player.energy.boost.lt(9))return player.energy.dimensions[player.energy.boost.toNumber()].bought.gte(2)
-        return player.energy.dimensions[8].gte(player.energy.boost.times(5))
+        return player.energy.dimensions[8].bought.gte(this.requirement())
+    },
+    requirement(){
+        if(player.energy.boost.lt(9))return new Decimal(2)
+        return player.energy.boost.minus(8).times(5)
     },
     reset(){
         if(this.canReset()){
@@ -38,7 +42,7 @@ energy.boost = {
         }
         if(to.txt){
             elements.get("energy-boost-amt").textContent = formatWhole(player.energy.boost.add(1))
-            elements.get("energy-boost-button").textContent = `Reset for${player.energy.boost.lt(8)?" a new producer and":""} a ${notations.bignum.percent(this.getBase(),true)} boost to ${this.producerTxt()}.`
+            elements.get("energy-boost-button").textContent = this.canReset()?`Reset for${player.energy.boost.lt(8)?" a new producer and":""} a ${notations.bignum.percent(this.getBase(),true)} boost to ${this.producerTxt()}.`:`${formatWhole(this.requirement())} ${formatWhole(player.energy.boost.add(1).min(9))}${notations.normal.place(player.energy.boost.add(1).toNumber())} generators required.`
         }
     }
 }

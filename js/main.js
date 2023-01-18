@@ -3,11 +3,11 @@ let tickSpeed = 1
 function mainLoop(){
     let time = Date.now()
     let diff = (time-player.time)/1000*tickSpeed
-    let simulatedTicks = Math.min(Math.floor(diff/0.25),1e4)
+    let simulatedTicks = Math.min(Math.floor(diff/1),1e4)
     player.time = time
 
-    for(let x=0;x<simulatedTicks;x++)update(0.25)
-    update(diff%0.1)
+    for(let x=0;x<simulatedTicks;x++)update(1)
+    update(diff%1)
 
     requestAnimationFrame(mainLoop)
 }

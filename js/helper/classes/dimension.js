@@ -30,7 +30,7 @@ class Dimension{
     init(){
         // goal: create dimension element
         let ele = document.createElement("tr")
-        ele.innerHTML = `<td style="text-align:left;width:35%">${this.pos}${notations.normal.place(this.pos)} ${this.type.slice(0,1).toUpperCase()+this.type.slice(1)} Producer: <span id="${this.type}-dim-${this.pos}-multi"></span>x</td><td style="text-align:center;width:35%"><span id="${this.type}-dim-${this.pos}-amount"></span> [+<span id="${this.type}-dim-${this.pos}-gain"></span>%]</td><td style="text-align:right;width:50%"><button id="${this.type}-dim-${this.pos}-buy" style="width:80%"></button></td>`
+        ele.innerHTML = `<td style="text-align:left;width:35%">${this.pos}${notations.normal.place(this.pos)} ${this.type.slice(0,1).toUpperCase()+this.type.slice(1)} Producer: <span id="${this.type}-dim-${this.pos}-multi"></span>x</td><td style="text-align:center;width:35%"><span id="${this.type}-dim-${this.pos}-amount"></span> [+<span id="${this.type}-dim-${this.pos}-gain"></span>%]</td><td style="text-align:right;width:50%"><button id="${this.type}-dim-${this.pos}-buy" style="width:250px"></button></td>`
         ele["dim-type"] = this.type
         ele.style.width = "100%"
         document.body.appendChild(ele)
@@ -78,6 +78,7 @@ class Dimension{
             this.setAmount(this.getAmount().add(amt))
             this.cost.cpath[0]()[this.cost.cpath[1]] = this.cost.cpath[0]()[this.cost.cpath[1]].sub(cost)
             this.update({css:true,txt:true})
+            energy.boost.update({txt:true,css:true})
         }
     }
     update(to={css:true,ticktxt:true}){
@@ -88,7 +89,7 @@ class Dimension{
             this.elements.ele.style.display = this.unlocked()?"":"none"
         }
         if(to.txt){
-            this.elements.button.textContent = `${formatWhole(this.getCostOne())} ${this.type.slice(0,1).toUpperCase()+this.type.slice(1)}`
+            this.elements.button.textContent = `${formatWhole(this.getCostOne())} ${this.type}`
         }
         if(to.ticktxt||to.txt){
             this.elements.multi.textContent = `${format(this.getMultiplier())}`

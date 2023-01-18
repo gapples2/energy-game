@@ -3,7 +3,7 @@ energy.tickspeed = {
         return player.energy.tickspeed
     },
     getBase(){
-        return new Decimal(1.1).times(energy.overclock.getBoost())
+        return new Decimal(0.1).times(energy.overclock.getBoost()).add(1)
     },
     getBoost(){
         return Decimal.pow(this.getBase(),this.getAmount())
@@ -37,6 +37,7 @@ energy.tickspeed = {
         if(to.css){
             elements.get("energy-tickspeed-button").className = this.canBuy()?"energy-unlocked":"locked"
             elements.get("energy-tickspeed").style.display = player.energy.tickspeedUnlocked?"":"none"
+            elements.get("energy-tickspeed-br").style.display = player.energy.tickspeedUnlocked?"":"none"
         }
         if(to.txt){
             elements.get("energy-tickspeed-boost").textContent = `${format(this.getBoost())}x [${format(this.getBase())}x]`
